@@ -1,0 +1,55 @@
+   <html>
+    <head>
+	<title>Json data in dropdown</title>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+	  
+	  
+
+    $(document).ready(function(){
+	
+	//var jsonList = 
+      var listItems= "";
+var jsonData = {"Table" : [{"stateid" : "1","statename" : "Select"},
+				{"stateid" : "2","statename" : "Tamilnadu"},
+                {"stateid" : "3","statename" : "Karnataka"},
+                {"stateid" : "4","statename" : "Andaman and Nicobar"},
+                 {"stateid" : "5","statename" : "Andhra Pradesh"},
+                 {"stateid" : "6","statename" : "Arunachal Pradesh"}]};
+    for (var i = 0; i < jsonData.Table.length; i++){
+      listItems+= "<option value='" + jsonData.Table[i].stateid + "'>" + jsonData.Table[i].statename + "</option>";
+    }
+    $("#DLState").html(listItems);
+    });   
+	
+	function answers() {
+    
+var select = document.getElementById("DLState");
+//var answer = select.options[select.selectedIndex].value;
+var answer = select.options[select.selectedIndex].text;
+if(answer != "Select"){
+alert("Thats correct"); 
+alert(answer); 
+}
+    else{
+    alert("Please choose an option");
+    }
+    
+}
+	  </script></head>
+    <body>
+      <select id="DLState">
+      </select>
+	  <button  id="checkbtn" onclick="answers();" type="button"> Check </button>
+	  <script>
+	  var a = document.getElementById("DLState");
+alert(a.options[a.selectedIndex].value);
+alert(a.options[a.selectedIndex].text);
+</script>
+	  
+    </body>
+    </html>
+//hello
+   
+    
